@@ -29,5 +29,11 @@ public class BoardController {
         return ResponseEntity.created(uri).body(null);
     }
 
+    @PostMapping("/board/v2")
+    public ResponseEntity<Void> createBoardWithEvent(@RequestBody BoardRequest boardRequest) {
+        long boardId = boardService.createWithEvent(boardRequest);
+        URI uri = URI.create("/board"+boardId);
+        return ResponseEntity.created(uri).body(null);
+    }
 
 }
