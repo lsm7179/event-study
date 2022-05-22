@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class History extends BaseTimeEntity{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne
