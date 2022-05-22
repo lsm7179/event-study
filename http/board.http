@@ -21,4 +21,7 @@ Content-Type: application/json
 
 GET {{host}}/board/1
 Accept: application/json
+###
 
+GET {{host}}/board/2
+Accept: application/json
