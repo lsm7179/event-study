@@ -32,16 +32,16 @@ public class BoardService {
         return savedBoard.getId();
     }
 
-    public Board findBoardById(long id) {
-        return boardRepository.findById(id)
-                .orElseThrow(IllegalArgumentException::new);
-    }
-
     @Transactional
     public long createWithEvent(BoardRequest boardRequest) {
         Board createBoard = boardRequest.toBoard();
         Board savedBoard = boardRepository.save(createBoard);
         eventPublisher.publishEvent(new CreatedBoard(savedBoard.getId()));
         return savedBoard.getId();
+    }
+
+    public Board findBoardById(long id) {
+        return boardRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
     }
 }
