@@ -6,4 +6,7 @@ import lombok.Data;
 public class CreatedBoard {
     private long boardId;
 
+    public CreatedBoard(long boardId) {
+        this.boardId = boardId;
+    }
 }

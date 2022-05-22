@@ -3,6 +3,7 @@ package com.study.event.service;
 import com.study.event.domain.Board;
 import com.study.event.domain.History;
 import com.study.event.dtos.BoardRequest;
+import com.study.event.event.CreatedBoard;
 import com.study.event.repository.BoardRepository;
 import com.study.event.repository.HistoryRepository;
 import org.springframework.context.ApplicationEventPublisher;
@@ -36,10 +37,11 @@ public class BoardService {
                 .orElseThrow(IllegalArgumentException::new);
     }
 
+    @Transactional
     public long createWithEvent(BoardRequest boardRequest) {
         Board createBoard = boardRequest.toBoard();
         Board savedBoard = boardRepository.save(createBoard);
-        //eventPublisher.publishEvent();
+        eventPublisher.publishEvent(new CreatedBoard(savedBoard.getId()));
         return savedBoard.getId();
     }
 }
