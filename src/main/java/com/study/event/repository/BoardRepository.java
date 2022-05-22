@@ -1,4 +1,4 @@
-package com.study.event;
+package com.study.event.repository;
 
 import com.study.event.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
