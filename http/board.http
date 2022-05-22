@@ -9,7 +9,7 @@ Content-Type: application/json
   "content": "본문 입니다."
 }
 ###
-// 이벤트를 사용하지 않은 게시글 등록
+// 이벤트를 사용하여 게시글 등록
 POST {{host}}/board/v2
 Content-Type: application/json
 
